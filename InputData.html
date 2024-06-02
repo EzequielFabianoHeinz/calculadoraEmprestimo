@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles.css">
+<!-- Importa o arquivo de estilos -->
+
+
+<title>Calculadora de Empréstimos</title>
+
+
+<style>
+
+/* Estilo para o cabeçalho inical */
+formHeader {
+	display: flex; /* Ativa o layout flexível */
+	flex-direction: row; /* Alinha os elementos horizontalmente */
+	/* flex-wrap: wrap; */
+	justify-content: center;
+	/* Permite que os elementos quebrem para a próxima linha */
+}
+
+formHeader label {
+	/* flex: 5px;  */
+	/* Define a largura fixa para os rótulos dos campos */
+	text-align: right; /* Alinha os rótulos à direita */
+	margin: 10px 10px 10px 10px;
+	/* Adiciona um espaço entre o rótulo e o campo */
+	justify-content: center;
+}
+
+formHeader input {
+	margin: 40px -30px -10px -50px;
+	/* Adiciona um espaço entre os campos */
+}
+
+/* Estilo para o botão de envio */
+formHeader button {
+	margin: 5px 10px 5px 15px;
+	background-color: #1081b2;
+	color: white;
+	font-size: 12;
+}
+
+/* ****************************************Estilo para o cabeçalho secudanrio *********************************************************/
+.wrapper {
+	display: flex;
+	margin-top: 20px;
+	justify-content: center;
+}
+
+.wrapper2 {
+	display: flex;
+	margin-top: -23px;
+	justify-content: center;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 20px;
+}
+
+.row {
+	display: flex;
+	/*  justify-content: space-between; */
+	/*   margin: 10px; */
+}
+
+.container2 {
+	display: inline-block;
+	/*  flex-direction: column; */
+	margin-bottom: 20px;
+}
+
+.row2 {
+	display: flex;
+}
+
+.container3 {
+	display: inline-block;
+	/*  flex-direction: column; */
+	margin-bottom: 20px;
+}
+
+.row3 {
+	display: flex;
+}
+
+.container4 {
+	display: inline-block;
+	/*  flex-direction: column; */
+	margin-bottom: 20px;
+}
+
+.row4 {
+	display: flex;
+}
+
+formHeaderTable {
+	font-size: 12px;
+	display: flex;
+	width: 390px;
+	justify-content: center;
+	background-color: #1081b2;
+	color: white;
+}
+
+formHeaderTable label {
+	font-weight: arial;
+	font-size: 12px;
+	margin-right: 22px; /* Adiciona espaçamento entre o rótulo e a div */
+}
+
+formHeaderTable div {
+	flex-grow: 1;
+	font-weight: arial;
+	font-size: 12px;;
+	border-right: 1px solid #ccc;
+	align-items: center; /* Alinha o conteúdo verticalmente */
+	background-color: #1081b2;
+	color: white;
+}
+
+/************************ABA EMPRESTIMO******************************************************************************/
+formHeaderTableCabe {
+	font-weight: arial;
+	font-size: 12px;;
+	display: inline-flex;
+	border-bottom: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	width: 452px;
+	justify-content: center;
+	background-color: #1081b2;
+	color: white;
+}
+
+formHeaderTable1 {
+	font-weight: arial;
+	font-size: 12px;;
+	display: inline-flex;
+	border-bottom: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	width: 150px;
+	justify-content: center;
+	background-color: #1081b2;
+	color: white;
+}
+
+formHeaderTable2 {
+	font-weight: arial;
+	font-size: 12px;;
+	display: inline-flex;
+	border-bottom: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	width: 150px;
+	justify-content: center;
+	background-color: #1081b2;
+	color: white;
+}
+
+formHeaderTable3 {
+	font-weight: arial;
+	font-size: 12px;;
+	display: inline-flex;
+	border-bottom: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	width: 150px;
+	justify-content: center;
+	background-color: #1081b2;
+	color: white;
+}
+
+/************************ABA PARCELA******************************************************************************/
+formHeaderTableCabe2 {
+	font-weight: arial;
+	font-size: 12px;;
+	display: inline-flex;
+	border-bottom: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	width: 301px;
+	justify-content: center;
+	background-color: #1081b2;
+	color: white;
+}
+
+formHeaderTableP1 {
+	font-weight: arial;
+	font-size: 12px;;
+	display: inline-flex;
+	border-bottom: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	width: 150px;
+	justify-content: center;
+	background-color: #1081b2;
+	color: white;
+}
+
+formHeaderTableP2 {
+	font-weight: arial;
+	font-size: 12px;;
+	display: inline-flex;
+	border-bottom: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	width: 150px;
+	justify-content: center;
+	background-color: #1081b2;
+	color: white;
+}
+
+/************************ABA PRINCIPAL****************************************************************************/
+formHeaderTableCabe3 {
+	font-weight: arial;
+	font-size: 12px;;
+	display: inline-flex;
+	border-bottom: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	width: 301px;
+	justify-content: center;
+	background-color: #1081b2;
+	color: white;
+}
+
+formHeaderTableP4 {
+	font-weight: arial;
+	font-size: 12px;;
+	display: inline-flex;
+	border-bottom: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	width: 150px;
+	justify-content: center;
+	background-color: #1081b2;
+	color: white;
+}
+
+formHeaderTableP5 {
+	font-weight: arial;
+	font-size: 12px;;
+	display: inline-flex;
+	border-bottom: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	width: 150px;
+	justify-content: center;
+	background-color: #1081b2;
+	color: white;
+}
+
+/************************ABA JUROS****************************************************************************/
+formHeaderTableCabe4 {
+	font-weight: arial;
+	font-size: 12px;;
+	display: inline-flex;
+	border-bottom: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	width: 452px;
+	justify-content: center;
+	background-color: #1081b2;
+	color: white;
+}
+
+formHeaderTable4 {
+	font-weight: arial;
+	font-size: 12px;;
+	display: inline-flex;
+	border-bottom: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	width: 150px;
+	justify-content: center;
+	background-color: #1081b2;
+	color: white;
+}
+
+formHeaderTable5 {
+	font-weight: arial;
+	font-size: 12px;;
+	display: inline-flex;
+	border-bottom: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	width: 150px;
+	justify-content: center;
+	background-color: #1081b2;
+	color: white;
+}
+
+formHeaderTable6 {
+	font-weight: arial;
+	font-size: 12px;;
+	display: inline-flex;
+	border-bottom: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	width: 150px;
+	justify-content: center;
+	background-color: #1081b2;
+	color: white;
+}
+
+/* *******************alyout grid */
+.grid-container {
+	display: inline-grid;
+	grid-template-columns: 10fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+	/* Duas colunas, a primeira com o dobro da largura da segunda */
+	margin-left: 189px;
+}
+
+.valueEmpre-item, .valueSaldDev-item, .port-item, .valueOfTotal-item,
+	.valueOfAmtz-item, .valueOfSald-item, .valueOfProv-item,
+	.valueOfAcml-item, .valuePfPayed-item {
+	background-color: #d0d0d0; /* Cor de fundo para visualização */
+	text-align: center; /* Alinhamento de texto */
+	border: 1px solid white; /* Borda para visualização */
+	color: #4F4F4F;
+}
+
+.date-item {
+	background-color: #d0d0d0; /* Cor de fundo para visualização */
+	text-align: center; /* Alinhamento de texto */
+	border: 1px solid white; /* Borda para visualização */
+	color: #4F4F4F;
+}
+
+.blank-item, .grid-row {
+	background-color: #d0d0d0; /* Cor de fundo para visualização */
+	text-align: center; /* Alinhamento de texto */
+	border: 1px solid white; /* Borda para visualização */
+	color: #4F4F4F;
+	display: inline-grid;
+}
+</style>
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="Inputmask/dist/jquery.inputmask.min.js"></script>
+
+</head>
+<body>
+	<h1>Calculadora de Empréstimos</h1>
+	<formHeader id="dataForm"> <label for="dtaInit">Data
+		Inicial</label> <input type="date" id="dtaInit" name="dtaInit" required>
+	<br>
+	<br>
+	<label for="dtaFnl">Data Final</label> <input type="date" id="dtaFnl"
+		name="dtaFnl" required>
+	<br>
+	<br>
+	<label for="dtaPP">Primeiro Pagamento</label> <input type="date"
+		id="dtaPP" name="dtaPP" required>
+	<br>
+	<br>
+	<label for="valueOfEprt">Valor do Empréstimo</label> <input
+		type="number" id="valueOfEprt" name="valueOfEprt" class="doubleField"
+		required>
+	<br>
+	<br>
+	<label for="taxRate">Taxa de Juros</label> <input type="number"
+		id="taxRate" class="percentField" name="taxRate" required>
+	<br>
+	<br>
+	<label for="numOfDay">Base de dias</label> <input type="text"
+		id="numOfDay" class="integerField" name="numOfDay" required>
+	<br>
+	<br>
+	<label for="numOfPort">Qntd de parcelas</label> <input type="number"
+		id="numOfPort" class="integerField" name="numOfPort" required>
+	<br>
+	<br>
+
+	<button id="calcularButton" type="submit">Calcular</button>
+	</formHeader>
+	<!--  **********************CABEÇALHOS*********************************************************************************************************************************************************************-->
+
+	<div class="wrapper">
+		<div class="container">
+			<div>
+				<formHeaderTableCabe id="dataFormPlanCabe"> <label
+					for="titleCabe">Empréstimo</label> </formHeaderTableCabe>
+			</div>
+		</div>
+
+		<div class="container2">
+			<div>
+				<formHeaderTableCabe2 id="dataFormPlanCabe2">
+				<label for="titleCabe">Parcela</label> </formHeaderTableCabe2>
+			</div>
+		</div>
+
+		<div class="container3">
+			<div>
+				<formHeaderTableCabe3 id="dataFormPlanCabe3">
+				<label for="titleCabe">Principal</label> </formHeaderTableCabe3>
+			</div>
+		</div>
+
+		<div class="container4">
+			<div>
+				<formHeaderTableCabe4 id="dataFormPlanCabe3">
+				<label for="titleCabe">Juros</label> </formHeaderTableCabe4>
+			</div>
+		</div>
+
+	</div>
+
+	<!--  **********************ABA EMPRESTIMO*********************************************************************************************************************************************************************-->
+	<div class="wrapper2">
+		<div class="row">
+			<div>
+				<formHeaderTable1 id="dataFormPlan"> <label
+					for="dtaComp">Data Competência</label> </formHeaderTable1>
+			</div>
+			<div>
+				<formHeaderTable2 id="dataFormPlan2"> <label
+					for="valueOfEmprt">Valor de Empréstimo</label> </formHeaderTable2>
+			</div>
+			<div>
+				<formHeaderTable3 id="dataFormPlan3"> <label
+					for="valueOfSaldDev">Saldo Devedor</label> </formHeaderTable3>
+			</div>
+		</div>
+
+
+
+		<!--  ****************************ABA PARCELA***************************************************************************************************************************************************************-->
+		<div class="row2">
+			<div>
+				<formHeaderTableP1 id="dataFormPlanP"> <label
+					for="dtaComp">Consolidada</label> </formHeaderTableP1>
+			</div>
+			<div>
+				<formHeaderTable2 id="dataFormPlanP2"> <label
+					for="valueOfEmprt">Total</label> </formHeaderTableP2>
+			</div>
+		</div>
+
+
+		<!--  ****************************ABA PRINCIPAL***************************************************************************************************************************************************************-->
+		<div class="row3">
+			<div>
+				<formHeaderTableP4 id="formHeaderTableP4"> <label
+					for="valueOfAmt">Amortização</label> </formHeaderTableP4>
+			</div>
+
+			<div>
+				<formHeaderTableP5 id="formHeaderTableP5"> <label
+					for="valueOfAmt">Saldo</label> </formHeaderTableP5>
+			</div>
+
+		</div>
+
+
+		<!--  ****************************ABA JUROS***************************************************************************************************************************************************************-->
+		<div class="row4">
+			<div>
+				<formHeaderTable4 id="formHeaderTable4"> <label
+					for="valueOfAmt">Provisão</label> </formHeaderTable4>
+			</div>
+
+			<div>
+				<formHeaderTable5 id="formHeaderTable5"> <label
+					for="valueOfAmt">Acumulado</label> </formHeaderTable5>
+			</div>
+
+			<div>
+				<formHeaderTable6 id="formHeaderTable6"> <label
+					for="valueOfAmt">Pago</label> </formHeaderTable6>
+			</div>
+
+		</div>
+	</div>
+
+	<!-- COLUNAS COM OS CALCULOS -->
+
+	<div class="grid-container">
+		<!-- 	 serão geradas as linhas de grid -->
+	</div>
+
+
+
+	<script>
+		// Capturar o evento de envio do formulário
+
+		$(document).ready(function() {
+			$('.doubleField').inputmask({
+				alias : 'currency',
+				allowMinus : false,
+				digits : 2,
+				radixPoint : ',',
+				autoGroup : true,
+				groupSeparator : '.',
+				groupSize : 3,
+				rightAlign : false,
+				placeholder : '0',
+				removeMaskOnSubmit : true
+			});
+		});
+
+		$(document).ready(function() {
+			$('.integerField').inputmask({
+				alias : 'integer',
+				allowMinus : false,
+				rightAlign : false,
+				digits : 0,
+				autoUnmask : true,
+				removeMaskOnSubmit : true,
+				clearMaskOnLostFocus : true
+			});
+		});
+
+		$(document).ready(function() {
+			$('.percentField').inputmask({
+				alias : 'percentage',
+				min : 0,
+				max : 999999999,
+				digits : 2,
+				allowMinus : false
+			});
+		});
+
+		// Validação das datas
+
+
+
+		function valiDateInput(fieldDtaId) {
+			var currentDay = new Date().toISOString().split('T')[0];
+			var userInputDate = document.getElementById(fieldDtaId).value;
+
+			if (userInputDate < currentDay) {
+				document.getElementById(fieldDtaId).value = '';
+				alert('Digite uma data igual ou posterior à data atual.');
+			}
+		}
+
+		// Adiciona um evento de blur para o campo de data
+
+		document.getElementById('dtaInit').addEventListener('blur', function() {
+			valiDateInput('dtaInit');
+		});
+
+		document.getElementById('dtaPP').addEventListener('blur', function() {
+			valiDateInput('dtaPP');
+		});
+
+	document.getElementById('dataForm').addEventListener('submit',
+
+		function(event) {
+			// Prevenir o comportamento padrão do formulário (recarregar a página)
+			event.preventDefault();
+
+			// Capturar os valores dos campos do formulário
+
+			const valueOfEprt = document.getElementById('valueOfEprt').value;
+			const taxRate = document.getElementById('taxRate').value;
+			const numOfDay = document.getElementById('numOfDay').value;
+
+		});
+
+		function validationFields() {
+
+			var dtaInit = document.getElementById('dtaInit').value;
+			var dtaFnl = document.getElementById('dtaFnl').value;
+			var dtaPP = document.getElementById('dtaPP').value;
+
+			var initDateParts = dtaInit.split("-");
+			var initYear = parseInt(initDateParts[0], 10);
+			var initMonth = parseInt(initDateParts[1], 10) - 1;
+			var initDay = parseInt(initDateParts[2], 10);
+
+			var finalDateParts = dtaFnl.split("-");
+			var finalYear = parseInt(finalDateParts[0], 10);
+			var finalMonth = parseInt(finalDateParts[1], 10) - 1;
+			var finalDay = parseInt(finalDateParts[2], 10);
+			
+			var ppDateParts = dtaPP.split("-");
+			var ppYear = parseInt(ppDateParts[0], 10);
+			var ppMonth = parseInt(ppDateParts[1], 10) - 1;
+			var ppDay = parseInt(ppDateParts[2], 10);
+
+			var formattedInitDate = ("0" + initDay).slice(-2) + "/"
+					+ ("0" + (initMonth + 1)).slice(-2) + "/" + initYear;
+			var formattedFinalDate = ("0" + finalDay).slice(-2) + "/"
+					+ ("0" + (finalMonth + 1)).slice(-2) + "/" + finalYear;
+			var formattedFinalDate = ("0" + ppDay).slice(-2) + "/"
+			+ ("0" + (ppMonth + 1)).slice(-2) + "/" + ppYear;
+
+			if (new Date(dtaInit) >= new Date(dtaFnl)) {
+
+				alert('Digite uma data posterior à data inicial');
+
+				document.getElementById('dtaPP').disabled = true;
+				document.getElementById('valueOfEprt').disabled = true;
+				document.getElementById('taxRate').disabled = true;
+				document.getElementById('numOfDay').disabled = true;
+				document.getElementById('calcularButton').disabled = true;
+				
+				
+			} else if (new Date(dtaPP) >= new Date(dtaFnl)){
+				
+				alert('A data do primeiro pagamento deve ser menor que a data final');
+
+				document.getElementById('valueOfEprt').disabled = true;
+				document.getElementById('taxRate').disabled = true;
+				document.getElementById('numOfDay').disabled = true;
+				document.getElementById('calcularButton').disabled = true;
+				
+			}
+			  else {
+		        // Se a data final for corrigida, habilita novamente os campos
+		        document.getElementById('dtaPP').disabled = false;
+		        document.getElementById('valueOfEprt').disabled = false;
+		        document.getElementById('taxRate').disabled = false;
+		        document.getElementById('numOfDay').disabled = false;
+		        document.getElementById('calcularButton').disabled = false;
+		    }
+			
+
+		}
+
+		document.getElementById('dtaFnl').addEventListener('blur', function() {
+			validationFields('dtaFnl');
+		});
+		
+		document.getElementById('dtaPP').addEventListener('blur', function() {
+			validationFields('dtaPP');
+		});
+
+		var dtaPP = document.getElementById('dtaPP').value;
+		
+		function calcularParcelas() {
+			const numOfPort = parseInt(document.getElementById('numOfPort').value);
+			const valueOfEprt = document.getElementById('valueOfEprt').value;
+
+			// Seletor do container da grid
+			const gridContainer = document.querySelector('.grid-container');
+
+			// Limpa o conteúdo atual da grid
+			gridContainer.innerHTML = '';
+
+			// Obter a data do primeiro pagamento
+
+			dtaPP = document.getElementById('dtaPP').value;
+
+			if (dtaPP) {
+				// Divide a string da data em partes separadas
+				var dateParts = dtaPP.split("-");
+				var year = parseInt(dateParts[0], 10);
+				var month = parseInt(dateParts[1], 10) - 1;
+				var day = parseInt(dateParts[2], 10);
+
+				var formattedDate = ("0" + day).slice(-2) + "/"
+						+ ("0" + (month + 1)).slice(-2) + "/" + year;
+
+				if (day === 31) {
+
+					// Ajusta a próxima data de pagamento para o dia 29 do próximo mês
+					var nextMonth = month + 1;
+					var nextYear = year;
+
+					// Verifica se o próximo mês ultrapassa dezembro
+					if (nextMonth > 11) {
+						nextMonth = 0;
+						nextYear += 1;
+					}
+
+					var nextPaymentDate = new Date(nextYear, nextMonth, 29);
+					var formattedNextPaymentDate = ("0" + nextPaymentDate
+							.getDate()).slice(-2)
+							+ "/"
+							+ ("0" + (nextPaymentDate.getMonth() + 1))
+									.slice(-2)
+							+ "/"
+							+ nextPaymentDate.getFullYear();
+
+				} else {
+					var nextPaymentDate = new Date(year, month, day + 15);
+				}
+			}
+					
+			
+			
+			/* Calculo amortização */
+			
+		
+			var valueOfAmtzCal = Math.ceil(valueOfEprt /  numOfPort);			
+			var valueOfSaldCal = Math.ceil(valueOfEprt - valueOfAmtzCal);			
+			var dtaInit = document.getElementById('dtaInit').value;
+			var isFirstTime = true;
+			
+			/*  Calculado acumulado*/
+			const taxRate = document.getElementById('taxRate').value;
+			const numOfDay = document.getElementById('numOfDay').value;
+
+			
+			// Converte a string do input para um objeto Date	
+			var dtaInitDate = new Date(dtaInit + 'T00:00:00');
+
+			// Função para adicionar dias a uma data
+			function addDays(date, days) {
+   	 		var result = new Date(date.getTime());
+   	 		result.setUTCDate(result.getUTCDate() + days);
+    		return result;
+			}
+
+
+			// Adiciona 30 dias
+			var dtaCal = addDays(dtaInitDate, 30);
+
+			// Formata a data resultante para exibir em um formato legível
+			var options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+			var dtaCalFormatted = dtaCal.toLocaleDateString('pt-BR', options);
+			var dtaAtuali1 = dtaInitDate.toLocaleDateString('pt-BR', options);
+			var valueInitAcml= 0.00;
+
+			
+			
+			var diffTime = Math.abs(dtaCal - dtaInitDate);
+			var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+			
+			var valuOfSoma1 = valueOfSaldCal + valueInitAcml;
+			var valuOfSoma2 = (diffDays  / numOfDay) - 1;
+			var valuOfSoma3 = taxRate + 1;
+			var valueOfProvisi = Math.ceil(valuOfSoma3 ** valuOfSoma2 * valuOfSoma1);
+			var valuOfCalAcumul = 0.00;
+		
+			//calulo provisão segunda grid
+			var valueOf15PP = new Date(dtaPP);
+			var proximoMes = dtaInitDate.getMonth() + 2; // Adiciona um mês ao mês atual
+
+			// Se o próximo mês for dezembro, atualiza o ano e define o próximo mês para janeiro
+			if (proximoMes > 11) {
+		    proximoMes -= 12;
+    		dtaInitDate.setFullYear(dtaInitDate.getFullYear() + 1);
+			}
+
+			// Configura a nova data com o próximo mês e mantém o mesmo dia do mês
+			valueOf15PP.setMonth(proximoMes);
+
+			// Formata a nova data
+			var dataFormatada15 = valueOf15PP.toLocaleDateString('pt-BR', { year: 'numeric', month: '2-digit', day: '2-digit' });
+						
+			
+			for (let m = 0; m < 10; m++) {
+			    const gridRow = document.createElement('div');
+			    gridRow.classList.add('grid-row');
+
+			    // Loop para gerar as células da linha atual
+			    for (let n = 0; n < 2; n++) {
+			        const blankGridItem = document.createElement('div');
+			        blankGridItem.classList.add('blank-item');
+
+
+			        // Adicione condições para a sétima coluna
+			        if (m === 6) { // Supondo que a sétima coluna tem o índice 6 (pois os índices começam em 0)
+			            blankGridItem.textContent = valueOfEprt;
+			        } else if (m === 0 && n === 0){
+			        	blankGridItem.textContent = dtaAtuali1;
+			        } else if (m === 0 && n === 1){
+			        	blankGridItem.textContent = dtaCalFormatted;
+			    	} else if(m === 8 && n === 0){	
+			    		blankGridItem.textContent = valueInitAcml;
+			    		valuOfCalAcumul += valueInitAcml;
+			    	} else if (m === 7 && n === 0){
+			    		blankGridItem.textContent = valueInitAcml;
+			    	} else if (m === 9 && n === 0){
+			    		blankGridItem.textContent = valueInitAcml;
+			    	} else if (m === 9 && n === 1){
+			    		blankGridItem.textContent = valueInitAcml;
+			    		valuOfCalAcumul += valueInitAcml;
+			    	} else if (m === 7 && n === 1){
+			    		blankGridItem.textContent = valueOfProvisi;
+			    		valuOfCalAcumul += valueOfProvisi;
+			    	} else if (m === 8 && n === 1){
+			    		blankGridItem.textContent = valuOfCalAcumul;
+			    	} else if (m === 1 && n === 0){
+			    		blankGridItem.textContent = valueOfEprt;
+			    	} else if (m === 2 && n === 0){
+			    		blankGridItem.textContent = valueOfEprt;
+			    	} else if (m === 4 && n === 0){
+			    		blankGridItem.textContent = valueInitAcml;
+			    	} else if (m === 5 && n === 0){
+			    		blankGridItem.textContent = valueInitAcml;
+			    	} else if (m === 6 && n === 0){
+			    		blankGridItem.textContent = valueOfEprt;
+			    	} else if (m === 1 && n === 1){
+			    		blankGridItem.textContent = valueInitAcml;
+			    	} else if (m === 4 && n === 1){
+			    		blankGridItem.textContent = valueInitAcml;
+			    	} else if (m === 5 && n === 1){
+			    		blankGridItem.textContent = valueInitAcml;
+			    	} else if (m === 6 && n === 1){
+			    		blankGridItem.textContent = valueOfEprt;
+			    	} else if (m === 2 && n === 1){
+			    	    var newValueOfEprt = parseFloat(valueOfEprt) + parseFloat(valueOfProvisi);
+			    	    blankGridItem.textContent = newValueOfEprt;
+			    	}
+
+			        gridRow.appendChild(blankGridItem);
+			    }
+
+			    gridContainer.appendChild(gridRow);
+			}
+
+			// Loop para gerar as células da grid
+			for (let i = 0; i < numOfPort; i++) {
+				
+				var valueOfProvisi = Math.ceil(valuOfSoma3 ** valuOfSoma2 * valuOfSoma1);
+
+
+				const gridRow = document.createElement('div');
+				gridRow.classList.add('grid-row');
+
+				const dateGridItem = document.createElement('div');
+				dateGridItem.classList.add('date-item');
+				dateGridItem.textContent = dataFormatada15;
+
+				const valueEmpreItem = document.createElement('div');
+				valueEmpreItem.classList.add('valueEmpre-item');
+				valueEmpreItem.textContent = `${valueInitAcml}`;
+
+				const valueSaldDev = document.createElement('div');
+				valueSaldDev.classList.add('valueSaldDev-item');
+				valueSaldDev.textContent = `${valueOfSaldCal}`;
+
+				const portGridItem = document.createElement('div');
+				portGridItem.classList.add('port-item');
+				portGridItem.textContent = `${i + 1}/${numOfPort}`;
+				
+				const valueOfAmtzItem = document.createElement('div');
+				valueOfAmtzItem.classList.add('valueOfAmtz-item');
+				valueOfAmtzItem.textContent = `${valueOfAmtzCal}`;
+
+				const valueOfTotalItem = document.createElement('div');
+				valueOfTotalItem.classList.add('valueOfTotal-item');
+				valueOfTotalItem.textContent = `${valueOfEprt}`;
+				
+				const valueOfSaldItem = document.createElement('div');
+				valueOfSaldItem.classList.add('valueOfSald-item');
+				valueOfSaldItem.textContent = `${valueOfSaldCal}`;
+
+				const valueOfProvItem = document.createElement('div');
+				valueOfProvItem.classList.add('valueOfProv-item');
+				valueOfProvItem.textContent = `${valueOfProvisi}`;
+
+				const valueOfAcmlItem = document.createElement('div');
+				valueOfAcmlItem.classList.add('valueOfAcml-item');
+				valueOfAcmlItem.textContent = `${valueOfEprt}`;
+
+				const valuePfPayedItem = document.createElement('div');
+				valuePfPayedItem.classList.add('valuePfPayed-item');
+				valuePfPayedItem.textContent = `${valueOfEprt}`;
+
+				// Adiciona a data do próximo pagamento à célula
+
+				gridContainer.appendChild(dateGridItem);
+				gridContainer.appendChild(valueEmpreItem);
+				gridContainer.appendChild(valueSaldDev);
+				gridContainer.appendChild(portGridItem);												
+				gridContainer.appendChild(valueOfTotalItem);
+				gridContainer.appendChild(valueOfAmtzItem);
+				gridContainer.appendChild(valueOfSaldItem);
+				gridContainer.appendChild(valueOfProvItem);
+				gridContainer.appendChild(valueOfAcmlItem);
+				gridContainer.appendChild(valuePfPayedItem);
+
+				
+				
+				for (let k = 0; k < 10; k++) {
+					const blankRow = document.createElement('div');
+					blankRow.classList.add('grid-row'); // Adiciona uma classe para estilização de linha
+					gridContainer.appendChild(blankRow);
+
+					// Adiciona 10 colunas vazias em cada linha
+					for (let l = 0; l < 1; l++) {
+						const blankGridItem = document.createElement('div');
+						blankGridItem.classList.add('blank-item');
+						blankRow.appendChild(blankGridItem);
+						
+						 if (k === 0) {
+					            blankGridItem.textContent = nextPaymentDate.toLocaleDateString();
+					            recebeData = nextPaymentDate.toLocaleDateString();
+					        } else if (k === 1){
+					        	 blankGridItem.textContent = valueInitAcml;
+					        } else if (k === 4){
+					        	 blankGridItem.textContent = valueInitAcml;
+					        } else if (k === 5){
+					        	 blankGridItem.textContent = valueInitAcml;
+					        } else if (k === 6){
+					        	 blankGridItem.textContent = valueOfSaldCal;
+					        } else if (k === 7){
+					        	valueTest = Math.ceil(valueOfSaldCal - valuOfCalAcumul);
+					            blankGridItem.textContent = valueTest;
+					        }
+						
+					}
+				}
+				
+				valueOfSaldCal -= valueOfAmtzCal; 
+
+				// Incrementa a data do próximo pagamento para 15 dias à frente
+				nextPaymentDate.setDate(nextPaymentDate.getDate() + 15);
+
+			}
+		}
+		// Evento de clique no botão "Calcular"
+		document.getElementById('calcularButton').addEventListener('click',
+				calcularParcelas);
+	</script>
+</body>
+</html>
