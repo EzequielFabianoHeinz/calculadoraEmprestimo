@@ -14,11 +14,9 @@
 
 /* Estilo para o cabeçalho inical */
 formHeader {
-	display: flex; /* Ativa o layout flexível */
-	flex-direction: row; /* Alinha os elementos horizontalmente */
-	/* flex-wrap: wrap; */
+	display: flex;
+	flex-direction: row; 
 	justify-content: center;
-	/* Permite que os elementos quebrem para a próxima linha */
 }
 
 formHeader label {
@@ -41,6 +39,48 @@ formHeader button {
 	background-color: #1081b2;
 	color: white;
 	font-size: 12;
+}
+
+/* dtainit */
+formHeader2 {
+	flex-direction: row; 
+	margin: 5px 10px 5px 15px;/
+}
+
+formHeader2 label {	
+	text-align: right; 
+	margin: 10px 10px 10px 209px;
+	justify-content: center;
+	font-family:Tahoma;
+	font-size: 12px;
+}
+
+/* dtainit input */
+formHeader21 input {
+	margin: 10px -30px -10px 198px;
+	font-family:Tahoma;
+	font-size: 12px;
+}
+
+/* dtaFinal */
+formHeader3 {
+	flex-direction: row; 
+	margin: 5px 10px 5px 15px;/
+}
+
+formHeader3 label {	
+	text-align: right; 
+	margin: 10px 10px 10px 209px;
+	justify-content: center;
+	font-family:Tahoma;
+	font-size: 12px;
+}
+
+/* dtainit input */
+formHeader22 input {
+	margin: 10px -30px -10px 198px;
+	font-family:Tahoma;
+	font-size: 12px;
 }
 
 /* ****************************************Estilo para o cabeçalho secudanrio *********************************************************/
@@ -320,6 +360,10 @@ formHeaderTable6 {
 	display: inline-grid;	
 }
 
+body {
+    background-color: #D3D3D3; 
+}
+
 </style>
 
 <script
@@ -329,12 +373,20 @@ formHeaderTable6 {
 </head>
 <body>
 	<h1>Calculadora de Empréstimos</h1>
-	<formHeader id="dataForm"> <label for="dtaInit">Data
-		Inicial</label> <input type="date" id="dtaInit" name="dtaInit" required>
-	<br>
-	<br>
-	<label for="dtaFnl">Data Final</label> <input type="date" id="dtaFnl"
-		name="dtaFnl" required>
+
+	<formHeader2 id="dataForm2"> <label for="dtaInit">Data
+		Inicial</label> <br>
+	<formHeader21 id="dataForm21"> <input type="date"
+		id="dtaInit" name="dtaInit" required> </formHeader21> <br>
+	</formHeader2>
+
+	<formHeader3 id="dataForm3"> <label for="dtaFnl">Data
+		Final</label> <br>
+	<formHeader22 id="dataForm22"> <input type="date"
+		id="dtaFnl" name="dtaFnl" required> </formHeader22> <br>
+	</formHeader3>
+
+	<formHeader id="dataForm">
 	<br>
 	<br>
 	<label for="dtaPP">Primeiro Pagamento</label> <input type="date"
